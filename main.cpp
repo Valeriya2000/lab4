@@ -67,6 +67,28 @@ print_in_hex(const void* data, size_t size)
         }
     }
 }
+void calc (uint16_t op1, char operat ,uint16_t op2)
+{
+    print_in_hex(&op1,sizeof(op1));
+    cout << ' ' << operat << ' ';
+     print_in_hex(&op2,sizeof(op2));
+     cout << " = ";
+    uint16_t res;
+    if (operat == '&')
+    res=op1 & op2;
+    if (operat == '|')
+    res=op1 | op2;
+    if (operat == '^')
+    res=op1 ^ op2;
+     print_in_hex(&res,sizeof(res));
+    cout << endl;
+     print_in_binary(&op1,sizeof(op1));
+    cout << ' ' << operat << ' ';
+    print_in_binary(&op2,sizeof(op2));
+    cout << " = ";
+    print_in_binary(&res,sizeof(res));
+}
+
 int main()
 {
     assert(nibble_to_hex(0x0) == '0');
@@ -99,5 +121,6 @@ int main()
     cout << "u8 bytes: ";
     print_in_hex(&u8, sizeof(u8));
     cout << '\n';
+    calc (1025, '&', 127);
  return 0;
 }
