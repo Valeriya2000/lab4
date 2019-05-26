@@ -85,6 +85,19 @@ int main()
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
- print_in_binary(15);
+    print_in_binary(15);
+    cout << '\n';
+    uint32_t u32 = 0x42;
+    cout << "u32 bytes: ";
+    print_in_hex(&u32, sizeof(u32));
+    cout << '\n';
+     uint16_t u16 = 0x42;
+    cout << "u16 bytes: ";
+    print_in_hex(&u16, sizeof(u16));
+    cout << '\n';
+     uint8_t u8 = 0x42;
+    cout << "u8 bytes: ";
+    print_in_hex(&u8, sizeof(u8));
+    cout << '\n';
  return 0;
 }
