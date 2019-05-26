@@ -88,9 +88,21 @@ void calc (uint16_t op1, char operat ,uint16_t op2)
     cout << " = ";
     print_in_binary(&res,sizeof(res));
 }
+struct student {
+char name [17];
+uint16_t year;
+float average;
+uint8_t gender : 1;
+uint8_t courses;
+student* starosta;
+
+
+};
 
 int main()
 {
+    student students[3]={{"Valeriya",18,5,0,1,&students[1]},{"Nastyia",19,4,0,1,nullptr},{"Olga",18,5,0,1,&students[1]}};
+    /*
     assert(nibble_to_hex(0x0) == '0');
     assert(nibble_to_hex(0x1) == '1');
     assert(nibble_to_hex(0x2) == '2');
@@ -122,5 +134,62 @@ int main()
     print_in_hex(&u8, sizeof(u8));
     cout << '\n';
     calc (1025, '&', 127);
+    cout<<endl;*/
+     cout << "Address of students:  " << &students<<endl;
+    cout << "Size of students : " << sizeof(students)<<endl;
+       cout << "Address of student 0 : " << &students[0]<<endl;
+    cout << "Size of student 0 : " << sizeof(students[0])<<endl;
+    cout << "Address of student 1 : " << &students[1]<<endl;
+    cout << "Size of student 1 : " << sizeof(students[1])<<endl;
+    cout << "Address of student 2 : " << &students[2]<<endl;
+    cout << "Size of student 2 : " << sizeof(students[2])<<endl;
+       cout << endl;
+    cout << "Address of student 0 name : " << &students[0].name<<endl;
+    cout << "Offset of student 0 name : " <<offsetof(student, name)<<endl;
+    cout << "Size of student 0 name : " << sizeof(students[0].name)<<endl;
+    cout << "Print_in_hex of student 0 name : "<<endl;
+    print_in_hex(&students[0].name,sizeof(students[0].name));
+    cout << endl;
+    cout << "Print_in_binary of student 0 name : "<<endl;
+    print_in_binary(&students[0].name,sizeof(students[0].name));
+    cout << endl;
+     cout << "Address of student 0 year : " << &students[0].year<< endl;
+    cout << "Offset of student 0 year : " <<offsetof(student, year)<< endl;
+    cout << "Size of student 0 year : " << sizeof(students[0].year)<< endl;
+    cout << "Print_in_hex of student 0 year : "<< endl;
+     print_in_hex(&students[0].year,sizeof(students[0].year));
+     cout << endl;
+    cout << "Print_in_binary of student 0 year : "<< endl;
+    print_in_binary(&students[0].year,sizeof(students[0].year));
+    cout << endl;
+     cout << "Address of student 0 average: " << &students[0].average<< endl;
+    cout << "Offset of student 0 average :" <<offsetof(student, average)<< endl;
+    cout << "Size of student 0 average : " << sizeof(students[0].average)<< endl;
+    cout << "Print_in_hex of student 0 average : "<< endl;
+    print_in_hex(&students[0].average,sizeof(students[0].average));
+    cout << endl;
+    cout << "Print_in_binary of student 0 average : "<< endl;
+    print_in_binary(&students[0].average,sizeof(students[0].average));
+    cout << endl;
+    cout << "Address of student 0 courses : " << (void*)&students[0].courses<< endl;
+    cout << "Offset of student 0 courses : " <<offsetof(student, courses)<< endl;
+    cout << "Size of student 0 courses : " << sizeof(students[0].courses)<< endl;
+    cout << "Print_in_hex of student 0 courses : "<< endl;
+     print_in_hex(&students[0].courses,sizeof(students[0].courses));
+     cout << endl;
+    cout << "Print_in_binary of student 0 courses : "<< endl;
+    print_in_binary(&students[0].courses,sizeof(students[0].courses));
+    cout << endl;
+    cout << "Address of student 0 starosta : " << &students[0].starosta<< endl;
+    cout << "Offset of student 0 starosta  : " <<offsetof(student, starosta)<< endl;
+    cout << "Size of student 0 starosta : " << sizeof(students[0].starosta)<< endl;
+    cout << "Print_in_hex of student 0 starosta : "<< endl;
+    print_in_hex(&students[0].starosta,sizeof(students[0].starosta));
+    cout << endl;
+    cout << "Print_in_binary of student 0 starosta : "<< endl;
+     print_in_binary(&students[0].starosta,sizeof(students[0].starosta));
+    cout << endl;
+    cout << "Print_in_hex of student 0 courses : "<< endl;
+    print_in_hex(&students,sizeof(students));
  return 0;
 }
